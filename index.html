@@ -99,16 +99,86 @@
         ];
 
         const INITIAL_ITINERARY = [
-          { id: "1", date: "2026-03-28", time: "08:05", title: "Flight to Taipei (HB702)", type: "transport", location: "HKG -> TPE", description: "Departing HK at 08:05, Arriving TPE at 09:50." },
-          { id: "2", date: "2026-03-28", time: "12:00", title: "Lunch @ Cat Cafe", type: "food", location: "Fufu Cat Cafe", link: "https://www.instagram.com/fufucatcafe", description: "Relaxing lunch with cats." },
-          { id: "3", date: "2026-03-28", time: "14:30", title: "Nail Labo", type: "activity", location: "Nail Labo", link: "https://www.naillabotw.com/pages/store", description: "Manicure session." },
-          { id: "4", date: "2026-03-28", time: "16:00", title: "Shopping: East District & Ximending", type: "shopping", location: "Ximending", description: "Exploring the vibrant streets." },
-          { id: "5", date: "2026-03-28", time: "18:30", title: "Nanjichang Night Market", type: "food", location: "Nanjichang Night Market", link: "https://maps.app.goo.gl/V1T9TpVHHbiCtwB27?g_st=in", description: "Local street food dinner." },
-          { id: "11", date: "2026-03-30", time: "15:30", title: "Flight to Tokyo (TR870)", type: "transport", location: "TPE -> NRT", description: "Depart 15:30, Arrive Narita 19:55." },
-          { id: "12", date: "2026-03-30", time: "20:30", title: "Check-in Airbnb", type: "stay", location: "Ichiyu-Louis stage asakusa", address: "1 Chome-16 Kotobuki, Taito City", description: "Settle into Asakusa accommodation." },
-          { id: "13", date: "2026-03-31", time: "09:00", title: "Tsukiji Market", type: "food", location: "Tsukiji Outer Market", link: "https://maps.app.goo.gl/XmEuw51EeaM5CvgJ7?g_st=in", description: "Street food breakfast." },
-          { id: "24", date: "2026-04-01", time: "20:00", title: "Check-in New Airbnb", type: "stay", location: "Kandagawa SAKURA Terrace", address: "4 Chome−33−14 Kitashinjuku", link: "https://maps.app.goo.gl/RV86cGU66XKCsZqR8?g_st=in", description: "Move to Shinjuku accommodation." },
-          { id: "32", date: "2026-04-04", time: "14:20", title: "Flight to HK (UO629)", type: "transport", location: "HND -> HKG", description: "Depart 14:20, Arrive HK 18:00." }
+            // Day 1: March 28 (Sat)
+            { id: "d1-1", date: "2026-03-28", time: "08:05", title: "Flight HK -> Taipei (HB702)", type: "transport", location: "HKG -> TPE", description: "Arrive 09:50" },
+            { id: "d1-2", date: "2026-03-28", time: "10:30", title: "Travel to Airbnb", type: "transport", link: "https://maps.app.goo.gl/DJeKt3ZhfgxEdwC98?g_st=in", description: "" },
+            { id: "d1-3", date: "2026-03-28", time: "11:30", title: "Travel to Lunch", type: "transport", description: "" },
+            { id: "d1-4", date: "2026-03-28", time: "12:00", title: "Lunch @ Fufu Cat Cafe", type: "food", link: "https://www.instagram.com/fufucatcafe", description: "Relaxing lunch with cats." },
+            { id: "d1-5", date: "2026-03-28", time: "14:00", title: "Travel to Nail Shop", type: "transport", description: "" },
+            { id: "d1-6", date: "2026-03-28", time: "14:30", title: "Manicure @ Nail Labo", type: "activity", link: "https://www.naillabotw.com/pages/store", description: "" },
+            { id: "d1-7", date: "2026-03-28", time: "16:00", title: "East District & Ximending", type: "shopping", description: "Explore East District Underground St & Ximending" },
+            { id: "d1-8", date: "2026-03-28", time: "17:30", title: "Travel to Airbnb", type: "transport", description: "" },
+            { id: "d1-9", date: "2026-03-28", time: "18:00", title: "Packing", type: "activity", description: "" },
+            { id: "d1-10", date: "2026-03-28", time: "18:30", title: "Travel to Night Market", type: "transport", description: "To Nanjichang Night Market" },
+            { id: "d1-11", date: "2026-03-28", time: "18:45", title: "Dinner @ Nanjichang Night Market", type: "food", link: "https://maps.app.goo.gl/V1T9TpVHHbiCtwB27?g_st=in", description: "" },
+
+            // Day 2: March 29 (Sun)
+            { id: "d2-1", date: "2026-03-29", time: "10:00", title: "Breakfast @ Tang Bao Hung", type: "food", link: "https://maps.app.goo.gl/K2u6SKjXRPkL93cw7?g_st=in", description: "" },
+            { id: "d2-2", date: "2026-03-29", time: "10:30", title: "Travel to Zhongshan", type: "transport", description: "" },
+            { id: "d2-3", date: "2026-03-29", time: "10:45", title: "Shopping in Zhongshan", type: "shopping", link: "https://maps.app.goo.gl/RZeMnZkrGLiMmNCCA?g_st=in", description: "Marc Jacobs, Mochi Cheese Cake. Also Fuda Steamed Dumplings: https://maps.app.goo.gl/ZaNqZjehvM7zMmFb7?g_st=in" },
+            { id: "d2-4", date: "2026-03-29", time: "16:30", title: "Travel to Airbnb", type: "transport", description: "" },
+            { id: "d2-5", date: "2026-03-29", time: "17:00", title: "Massage", type: "activity", description: "" },
+            { id: "d2-6", date: "2026-03-29", time: "18:30", title: "Travel to Dinner", type: "transport", description: "" },
+            { id: "d2-7", date: "2026-03-29", time: "19:00", title: "Dinner @ Ji He Wagyu / Xiduo", type: "food", link: "https://maps.app.goo.gl/uD6VKFndzfKbKLfM6?g_st=in", description: "Or Xiduo Hot Pot: https://maps.app.goo.gl/bGBNrDTU3SAAKPF46?g_st=in" },
+
+            // Day 3: March 30 (Mon)
+            { id: "d3-1", date: "2026-03-30", time: "11:00", title: "Breakfast @ Yong He Soy Milk", type: "food", link: "https://maps.app.goo.gl/uSQ5FvsqY8TsEU848?g_st=in", description: "Ximending location" },
+            { id: "d3-2", date: "2026-03-30", time: "11:30", title: "Shopping in Ximending", type: "shopping", description: "" },
+            { id: "d3-3", date: "2026-03-30", time: "12:30", title: "Travel to Airport", type: "transport", description: "" },
+            { id: "d3-4", date: "2026-03-30", time: "15:30", title: "Flight TPE -> NRT (TR870)", type: "transport", description: "Arrive 19:55" },
+            { id: "d3-5", date: "2026-03-30", time: "20:30", title: "Travel to Airbnb (Ueno)", type: "transport", description: "Check-in Ichiyu-Louis stage asakusa" },
+
+            // Day 4: March 31 (Tue)
+            { id: "d4-1", date: "2026-03-31", time: "08:30", title: "Travel to Tsukiji Market", type: "transport", description: "" },
+            { id: "d4-2", date: "2026-03-31", time: "09:00", title: "Tsukiji Market Breakfast", type: "food", link: "https://maps.app.goo.gl/XmEuw51EeaM5CvgJ7?g_st=in", description: "Tamagoyaki, Oysters, Onigiri" },
+            { id: "d4-3", date: "2026-03-31", time: "11:15", title: "Lunch @ Tsukiji Unitora", type: "food", link: "https://maps.app.goo.gl/ZpU6kiNxzs2T1PXM6?g_st=in", description: "Sea Urchin (Nakadori)" },
+            { id: "d4-4", date: "2026-03-31", time: "12:30", title: "Travel to AENA", type: "transport", description: "" },
+            { id: "d4-5", date: "2026-03-31", time: "13:00", title: "AENA Yaesu Underground", type: "shopping", link: "https://maps.app.goo.gl/Hc8SedFr3u2gSkeS9?g_st=in", description: "" },
+            { id: "d4-6", date: "2026-03-31", time: "13:30", title: "Tokyo Station First Ave", type: "shopping", link: "https://maps.app.goo.gl/fpMgAwuwZoLqLhCE7?g_st=in", description: "Calbee, Glico, Tokyo Gift Palette" },
+            { id: "d4-7", date: "2026-03-31", time: "15:00", title: "Travel to Airbnb", type: "transport", description: "" },
+            { id: "d4-8", date: "2026-03-31", time: "16:00", title: "Travel to Sumida Park", type: "transport", description: "" },
+            { id: "d4-9", date: "2026-03-31", time: "16:15", title: "Sumida Park", type: "sightseeing", link: "https://maps.app.goo.gl/3UPPYVbgx98xPeoD8?g_st=in", description: "Cherry Blossoms & Skytree View" },
+            { id: "d4-10", date: "2026-03-31", time: "18:15", title: "Travel to Dinner", type: "transport", description: "" },
+            { id: "d4-11", date: "2026-03-31", time: "19:00", title: "Dinner @ Gyutan no Lemon", type: "food", link: "https://maps.app.goo.gl/3dgi68UfFoU9vE2z9?g_st=in", description: "Beef Tongue" },
+            { id: "d4-12", date: "2026-03-31", time: "20:30", title: "Don Quijote Asakusa", type: "shopping", link: "https://maps.app.goo.gl/JeYmRN3mCF6zQdGC8?g_st=in", description: "" },
+
+            // Day 5: April 1 (Wed)
+            { id: "d5-1", date: "2026-04-01", time: "09:30", title: "Store Luggage @ Ueno", type: "activity", description: "Ueno Station Lockers" },
+            { id: "d5-2", date: "2026-04-01", time: "10:10", title: "Travel to Aidaya", type: "transport", description: "" },
+            { id: "d5-3", date: "2026-04-01", time: "10:30", title: "Brunch @ Aidaya", type: "food", link: "https://maps.app.goo.gl/xabXMHjRjXYxu9t38?g_st=in", description: "Wagyu Sukiyaki" },
+            { id: "d5-4", date: "2026-04-01", time: "11:45", title: "Travel to Myogi Shrine", type: "transport", description: "" },
+            { id: "d5-5", date: "2026-04-01", time: "12:15", title: "Visit Myogi Shrine", type: "sightseeing", link: "https://maps.app.goo.gl/UTvwtwiG3Gm4yqG87?g_st=in", description: "" },
+            { id: "d5-6", date: "2026-04-01", time: "13:00", title: "Travel to Yanaka Ginza", type: "transport", description: "" },
+            { id: "d5-7", date: "2026-04-01", time: "13:30", title: "Yanaka Ginza (Cat Town)", type: "sightseeing", link: "https://maps.app.goo.gl/zn62MSrQJ6YwqifN8?g_st=in", description: "" },
+            { id: "d5-8", date: "2026-04-01", time: "15:30", title: "Travel to Yanesen/Ueno", type: "transport", description: "" },
+            { id: "d5-9", date: "2026-04-01", time: "15:45", title: "Visit Nezu Shrine/Ueno Park", type: "sightseeing", description: "" },
+            { id: "d5-10", date: "2026-04-01", time: "16:15", title: "Travel to Ameyoko", type: "transport", description: "" },
+            { id: "d5-11", date: "2026-04-01", time: "16:45", title: "Shopping @ Ameyoko", type: "shopping", link: "https://maps.app.goo.gl/TpZnisWe13QyTYEd6?g_st=in", description: "" },
+            { id: "d5-12", date: "2026-04-01", time: "18:00", title: "Dinner @ Yakiniku Bouya", type: "food", link: "https://maps.app.goo.gl/5evmWLSHnn89oqtp6?g_st=in", description: "Ueno Branch" },
+            { id: "d5-13", date: "2026-04-01", time: "20:00", title: "Travel to New Airbnb", type: "transport", link: "https://maps.app.goo.gl/RV86cGU66XKCsZqR8?g_st=in", description: "Check-in Kandagawa SAKURA Terrace" },
+
+            // Day 6: April 2 (Thu)
+            { id: "d6-1", date: "2026-04-02", time: "08:00", title: "Mt. Fuji Day Trip", type: "sightseeing", description: "All Day Event" },
+
+            // Day 7: April 3 (Fri)
+            { id: "d7-1", date: "2026-04-03", time: "08:00", title: "Walk along Kanda River", type: "sightseeing", description: "Morning walk" },
+            { id: "d7-2", date: "2026-04-03", time: "09:15", title: "Travel to Azabudai Hills", type: "transport", description: "" },
+            { id: "d7-3", date: "2026-04-03", time: "10:15", title: "Azabudai Hills", type: "sightseeing", description: "" },
+            { id: "d7-4", date: "2026-04-03", time: "11:30", title: "Travel to Azabu Juban", type: "transport", description: "" },
+            { id: "d7-5", date: "2026-04-03", time: "11:45", title: "Azabu Juban Shopping St", type: "shopping", description: "" },
+            { id: "d7-6", date: "2026-04-03", time: "12:30", title: "Travel to Ginza (Taxi)", type: "transport", description: "" },
+            { id: "d7-7", date: "2026-04-03", time: "12:50", title: "Shopping in Ginza", type: "shopping", link: "https://maps.app.goo.gl/H6LqwdyUmXGvjPkw7?g_st=in", description: "Lunch at Noboritei (Eel Rice)" },
+            { id: "d7-8", date: "2026-04-03", time: "17:00", title: "Travel to Miyabi", type: "transport", description: "" },
+            { id: "d7-9", date: "2026-04-03", time: "17:30", title: "Vintage Miyabi", type: "shopping", link: "https://maps.app.goo.gl/6n74bWHaaJonBpCP6?g_st=in", description: "Higashi Kanda" },
+            { id: "d7-10", date: "2026-04-03", time: "18:15", title: "Travel to Dinner", type: "transport", description: "" },
+            { id: "d7-11", date: "2026-04-03", time: "19:00", title: "Dinner @ Kisoji Kamiochiai", type: "food", link: "https://maps.app.goo.gl/4tLaxqhg5k5mXcJJA?g_st=in", description: "" },
+
+            // Day 8: April 4 (Sat)
+            { id: "d8-1", date: "2026-04-04", time: "09:50", title: "Travel to Kizuna Sushi", type: "transport", description: "" },
+            { id: "d8-2", date: "2026-04-04", time: "10:15", title: "Brunch @ Kizuna Sushi", type: "food", link: "https://maps.app.goo.gl/ByGjsvGHRJ7wcZHq6?g_st=in", description: "Shinjuku Kabukicho" },
+            { id: "d8-3", date: "2026-04-04", time: "11:15", title: "Travel to Haneda (HND)", type: "transport", description: "" },
+            { id: "d8-4", date: "2026-04-04", time: "12:20", title: "Airport Check-in", type: "activity", description: "" },
+            { id: "d8-5", date: "2026-04-04", time: "14:20", title: "Flight HND -> HK (UO629)", type: "transport", description: "Arrive 18:00" },
         ];
 
         const INITIAL_FLIGHTS = [
@@ -139,6 +209,12 @@
             '門票': '#86EFAC',
             '娛樂': '#FDE047'
         };
+
+        const INITIAL_USEFUL_INFO = [
+            { id: 'u1', name: 'Japan Luggage Storage', details: 'Reservation for luggage storage at Ueno Station (Ecbo Cloak).', link: 'https://cloak.ecbo.io/zh-TW' },
+            { id: 'u2', name: 'Visit Japan Web', details: 'For Japan immigration and customs QR codes.', link: 'https://vjw.digital.go.jp' },
+            { id: 'u3', name: 'Taiwan Online Arrival Card', details: 'Online immigration arrival card for Taiwan.', link: 'https://niaspeedy.immigration.gov.tw/webacard/' }
+        ];
 
         // --- ICONS (Inline SVG) ---
         const Icons = {
@@ -175,7 +251,7 @@
 
         // --- COMPONENTS ---
 
-        const EditModal = ({ isOpen, onClose, item, onSave, title = "Edit ✨" }) => {
+        const EditModal = ({ isOpen, onClose, item, onSave, title = "Edit ✨", mode = 'plan' }) => {
             const [formData, setFormData] = useState(item || {});
 
             useEffect(() => {
@@ -188,23 +264,21 @@
                 setFormData({ ...formData, [e.target.name]: e.target.value });
             };
 
-            const isHotel = formData.hasOwnProperty('address') && !formData.hasOwnProperty('time');
-
             return (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
                     <div className="bg-white rounded-[2rem] w-full max-w-sm p-6 shadow-2xl transform transition-all scale-100 max-h-[90vh] overflow-y-auto">
                         <h2 className="text-xl font-bold text-gray-800 mb-6 font-heading text-center">{title}</h2>
                         
                         <div className="space-y-4">
-                            {!isHotel && formData.hasOwnProperty('time') && (
+                            {mode === 'plan' && (
                                 <div className="flex gap-4">
                                     <div className="flex-1">
                                         <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Time</label>
-                                        <input type="time" name="time" value={formData.time} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" />
+                                        <input type="time" name="time" value={formData.time || ''} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" />
                                     </div>
                                     <div className="flex-1">
                                         <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Type</label>
-                                        <select name="type" value={formData.type} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200">
+                                        <select name="type" value={formData.type || 'food'} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200">
                                             {['transport', 'food', 'shopping', 'activity', 'sightseeing', 'stay'].map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
                                     </div>
@@ -212,23 +286,31 @@
                             )}
 
                             <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Hotel Name' : 'Plan Name'}</label>
-                                <input type="text" name={isHotel ? 'name' : 'title'} value={isHotel ? formData.name : formData.title} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" placeholder="Title" />
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">
+                                    {mode === 'hotel' ? 'Hotel Name' : (mode === 'info' ? 'Title' : 'Plan Name')}
+                                </label>
+                                <input type="text" name={mode === 'plan' ? 'title' : 'name'} value={mode === 'plan' ? (formData.title || '') : (formData.name || '')} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" placeholder="Name" />
                             </div>
 
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Address' : 'Location'}</label>
-                                <input type="text" name={isHotel ? 'address' : 'location'} value={isHotel ? formData.address : formData.location} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200" />
-                            </div>
+                            {mode !== 'info' && (
+                                <div>
+                                    <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">
+                                        {mode === 'hotel' ? 'Address' : 'Location'}
+                                    </label>
+                                    <input type="text" name={mode === 'hotel' ? 'address' : 'location'} value={mode === 'hotel' ? (formData.address || '') : (formData.location || '')} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200" />
+                                </div>
+                            )}
 
                             <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Google Maps Link</label>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Link (URL)</label>
                                 <input type="text" name="link" value={formData.link || ''} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm text-blue-500 outline-none focus:ring-2 focus:ring-pink-200" placeholder="https://..." />
                             </div>
 
                             <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Stay Dates / Notes' : 'Notes'}</label>
-                                <textarea name={isHotel ? 'notes' : 'description'} value={isHotel ? formData.notes : formData.description} onChange={handleChange} rows={3} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200 resize-none"></textarea>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">
+                                    {mode === 'hotel' ? 'Stay Dates / Notes' : (mode === 'info' ? 'Details' : 'Notes')}
+                                </label>
+                                <textarea name={mode === 'hotel' ? 'notes' : (mode === 'info' ? 'details' : 'description')} value={mode === 'hotel' ? (formData.notes || '') : (mode === 'info' ? (formData.details || '') : (formData.description || ''))} onChange={handleChange} rows={3} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200 resize-none"></textarea>
                             </div>
                         </div>
 
@@ -418,17 +500,26 @@
                 const s = localStorage.getItem('kawaii_hotels');
                 return s ? JSON.parse(s) : INITIAL_HOTELS;
             });
+            const [usefulInfo, setUsefulInfo] = useState(() => {
+                const s = localStorage.getItem('kawaii_useful_info');
+                return s ? JSON.parse(s) : INITIAL_USEFUL_INFO;
+            });
             
             // Modal States
             const [isModalOpen, setIsModalOpen] = useState(false);
             const [editingItem, setEditingItem] = useState(null);
+            
             const [isHotelModalOpen, setIsHotelModalOpen] = useState(false);
             const [editingHotel, setEditingHotel] = useState(null);
+
+            const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
+            const [editingInfo, setEditingInfo] = useState(null);
 
             useEffect(() => { localStorage.setItem('kawaii_itinerary', JSON.stringify(itinerary)); }, [itinerary]);
             useEffect(() => { localStorage.setItem('kawaii_expenses', JSON.stringify(expenses)); }, [expenses]);
             useEffect(() => { localStorage.setItem('kawaii_rates', JSON.stringify(rates)); }, [rates]);
             useEffect(() => { localStorage.setItem('kawaii_hotels', JSON.stringify(hotels)); }, [hotels]);
+            useEffect(() => { localStorage.setItem('kawaii_useful_info', JSON.stringify(usefulInfo)); }, [usefulInfo]);
 
             // --- COMPUTED ---
             const dailyItems = useMemo(() => itinerary.filter(i => i.date === selectedDate).sort((a,b) => a.time.localeCompare(b.time)), [itinerary, selectedDate]);
@@ -450,6 +541,7 @@
             const handleDeleteItinerary = (id) => { if(confirm("Delete item?")) setItinerary(prev => prev.filter(i => i.id !== id)); };
             const handleDeleteExpense = (id) => { if(confirm("Delete expense record?")) setExpenses(prev => prev.filter(e => e.id !== id)); };
             const handleDeleteHotel = (id) => { if(confirm("Delete hotel?")) setHotels(prev => prev.filter(h => h.id !== id)); };
+            const handleDeleteInfo = (id) => { if(confirm("Delete info?")) setUsefulInfo(prev => prev.filter(i => i.id !== id)); };
             
             const handleEditItineraryClick = (item) => { setEditingItem(item); setIsModalOpen(true); };
             const handleAddNewItineraryClick = () => {
@@ -485,6 +577,24 @@
                    return [...prev, formData];
                 });
                 setIsHotelModalOpen(false);
+            };
+
+            const handleEditInfoClick = (info) => { setEditingInfo(info); setIsInfoModalOpen(true); };
+            const handleAddNewInfoClick = () => {
+                setEditingInfo({ id: Date.now().toString(), name: '', details: '', link: '' });
+                setIsInfoModalOpen(true);
+            };
+            const handleSaveInfoItem = (formData) => {
+                setUsefulInfo(prev => {
+                   const index = prev.findIndex(i => i.id === formData.id);
+                   if (index > -1) {
+                       const next = [...prev];
+                       next[index] = formData;
+                       return next;
+                   }
+                   return [...prev, formData];
+                });
+                setIsInfoModalOpen(false);
             };
 
             const handleAddExpense = (e) => {
@@ -678,6 +788,24 @@
                                     </div>
                                 </div>
 
+                                <section className="mb-8">
+                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2"><span className="bg-green-100 p-1.5 rounded-lg text-green-500"><Icons.Wallet /></span> Rates</h3>
+                                    <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-50 space-y-4">
+                                        {Object.entries(rates).map(([curr, rate]) => (
+                                            <div key={curr} className="flex justify-between items-center">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{curr[0]}</div>
+                                                    <span className="font-bold text-gray-600 text-sm">1 {curr}</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-xs text-gray-400 font-bold">HKD</span>
+                                                    <input type="number" value={rate} step="0.001" onChange={(e) => setRates({...rates, [curr]: parseFloat(e.target.value)})} className="w-20 bg-gray-50 rounded-lg px-2 py-1 text-right font-mono text-sm font-bold outline-none focus:ring-2 focus:ring-green-200 transition-all" />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
+
                                 <div className="pb-8">
                                     <h3 className="font-bold text-gray-400 text-xs uppercase tracking-wider mb-3 ml-2">History</h3>
                                     <div className="space-y-3">
@@ -725,6 +853,34 @@
                                         </a>
                                     </div>
                                 </section>
+                                
+                                <section>
+                                    <div className="flex justify-between items-center mb-3">
+                                        <h3 className="font-bold text-lg text-kawaii-text flex items-center gap-2">
+                                            <span className="bg-pink-100 p-1.5 rounded-lg text-pink-500"><Icons.List /></span> Useful Information
+                                        </h3>
+                                        <button onClick={handleAddNewInfoClick} className="p-2 bg-pink-100 text-pink-500 rounded-full hover:bg-pink-200 transition-colors">
+                                            <Icons.Plus />
+                                        </button>
+                                    </div>
+                                    <div className="space-y-3">
+                                        {usefulInfo.map(info => (
+                                            <div key={info.id} className="bg-white rounded-2xl p-4 shadow-sm border border-pink-50 relative group transition-all hover:shadow-md">
+                                                <div className="flex justify-between items-start mb-1">
+                                                    <h4 className="font-bold text-gray-800 text-sm pr-8">{info.name}</h4>
+                                                    <div className="flex gap-1">
+                                                        <a href={info.link} target="_blank" className="p-2 bg-pink-50 text-pink-500 rounded-full hover:bg-pink-100 transition-colors whitespace-nowrap">
+                                                            OPEN ↗
+                                                        </a>
+                                                        <button onClick={() => handleEditInfoClick(info)} className="p-2 text-gray-400 hover:text-pink-500 bg-gray-50 rounded-full transition-all active:scale-90"><Icons.Edit /></button>
+                                                        <button onClick={() => handleDeleteInfo(info.id)} className="p-2 text-red-200 hover:text-red-400 bg-red-50 rounded-full transition-all active:scale-90"><Icons.Trash /></button>
+                                                    </div>
+                                                </div>
+                                                <p className="text-[11px] text-gray-400 leading-tight pr-4">{info.details}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
 
                                 <section>
                                     <div className="flex justify-between items-center mb-3">
@@ -768,24 +924,6 @@
                                     ))}
                                 </section>
 
-                                <section>
-                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2"><span className="bg-green-100 p-1.5 rounded-lg text-green-500"><Icons.Wallet /></span> Rates</h3>
-                                    <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-50 space-y-4">
-                                        {Object.entries(rates).map(([curr, rate]) => (
-                                            <div key={curr} className="flex justify-between items-center">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{curr[0]}</div>
-                                                    <span className="font-bold text-gray-600 text-sm">1 {curr}</span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-xs text-gray-400 font-bold">HKD</span>
-                                                    <input type="number" value={rate} step="0.001" onChange={(e) => setRates({...rates, [curr]: parseFloat(e.target.value)})} className="w-20 bg-gray-50 rounded-lg px-2 py-1 text-right font-mono text-sm font-bold outline-none focus:ring-2 focus:ring-green-200 transition-all" />
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </section>
-
                                 <div className="pt-4 pb-8 text-center">
                                     <button onClick={() => { if(confirm('⚠️ Reset all app data?')) { localStorage.clear(); window.location.reload(); } }} className="text-xs text-red-300 hover:text-red-500 font-bold uppercase tracking-widest hover:underline">Reset Data</button>
                                 </div>
@@ -800,6 +938,7 @@
                         item={editingItem} 
                         onSave={handleSaveItineraryItem} 
                         title="Manage Activity ✨"
+                        mode="plan"
                     />
                     <EditModal 
                         isOpen={isHotelModalOpen} 
@@ -807,6 +946,15 @@
                         item={editingHotel} 
                         onSave={handleSaveHotelItem} 
                         title="Manage Hotel 🏨" 
+                        mode="hotel"
+                    />
+                    <EditModal 
+                        isOpen={isInfoModalOpen} 
+                        onClose={() => setIsInfoModalOpen(false)} 
+                        item={editingInfo} 
+                        onSave={handleSaveInfoItem} 
+                        title="Manage Info ℹ️" 
+                        mode="info"
                     />
 
                     <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
