@@ -65,7 +65,8 @@
                             purple: '#E0BBE4',    /* Lavender */
                             yellow: '#FEF8DD',    /* Cream */
                             text: '#5D5D5D',
-                            card: '#FFFFFF'
+                            card: '#FFFFFF',
+                            hotPink: '#FF69B4'
                         }
                     },
                     borderRadius: {
@@ -97,53 +98,16 @@
         ];
 
         const INITIAL_ITINERARY = [
-          // --- March 28 (Taipei) ---
-          { id: 1, date: "2026-03-28", time: "08:05", title: "Flight to Taipei (HB702)", type: "transport", location: "HKG -> TPE", description: "Departing HK at 08:05, Arriving TPE at 09:50." },
-          { id: 2, date: "2026-03-28", time: "12:00", title: "Lunch @ Cat Cafe", type: "food", location: "Fufu Cat Cafe", link: "[https://www.instagram.com/fufucatcafe](https://www.instagram.com/fufucatcafe)", description: "Relaxing lunch with cats." },
-          { id: 3, date: "2026-03-28", time: "14:30", title: "Nail Labo", type: "activity", location: "Nail Labo", link: "[https://www.naillabotw.com/pages/store](https://www.naillabotw.com/pages/store)", description: "Manicure session." },
-          { id: 4, date: "2026-03-28", time: "16:00", title: "Shopping: East District & Ximending", type: "shopping", location: "Ximending", description: "Exploring the vibrant streets." },
-          { id: 5, date: "2026-03-28", time: "18:30", title: "Nanjichang Night Market", type: "food", location: "Nanjichang Night Market", link: "[https://maps.app.goo.gl/V1T9TpVHHbiCtwB27?g_st=in](https://maps.app.goo.gl/V1T9TpVHHbiCtwB27?g_st=in)", description: "Local street food dinner." },
-
-          // --- March 29 (Taipei) ---
-          { id: 6, date: "2026-03-29", time: "10:00", title: "Breakfast: Tang Bao Hung", type: "food", location: "Tang Bao Hung", link: "[https://maps.app.goo.gl/K2u6SKjXRPkL93cw7?g_st=in](https://maps.app.goo.gl/K2u6SKjXRPkL93cw7?g_st=in)", description: "Famous soup dumplings." },
-          { id: 7, date: "2026-03-29", time: "10:45", title: "Shopping in Zhongshan", type: "shopping", location: "Zhongshan District", link: "[https://maps.app.goo.gl/RZeMnZkrGLiMmNCCA?g_st=in](https://maps.app.goo.gl/RZeMnZkrGLiMmNCCA?g_st=in)", description: "Marc Jacobs, Fuda Dumplings, Mochi Cheesecake." },
-          { id: 8, date: "2026-03-29", time: "17:00", title: "Massage", type: "activity", location: "Taipei", description: "Relaxing massage session." },
-          { id: 9, date: "2026-03-29", time: "18:30", title: "Dinner: Hotpot", type: "food", location: "Ji He Wagyu / Kita Nabe", link: "[https://maps.app.goo.gl/uD6VKFndzfKbKLfM6?g_st=in](https://maps.app.goo.gl/uD6VKFndzfKbKLfM6?g_st=in)", description: "Enjoying lively seafood or Wagyu hotpot." },
-
-          // --- March 30 (Taipei -> Tokyo) ---
-          { id: 10, date: "2026-03-30", time: "11:00", title: "Breakfast: Yong He Soy Milk", type: "food", location: "Ximending", link: "[https://maps.app.goo.gl/uSQ5FvsqY8TsEU848?g_st=in](https://maps.app.goo.gl/uSQ5FvsqY8TsEU848?g_st=in)", description: "Classic Taiwanese breakfast." },
-          { id: 11, date: "2026-03-30", time: "15:30", title: "Flight to Tokyo (TR870)", type: "transport", location: "TPE -> NRT", description: "Depart 15:30, Arrive Narita 19:55." },
-          { id: 12, date: "2026-03-30", time: "20:30", title: "Check-in Airbnb", type: "stay", location: "Ichiyu-Louis stage asakusa", address: "1 Chome-16 Kotobuki, Taito City", description: "Settle into Asakusa accommodation." },
-
-          // --- March 31 (Tokyo) ---
-          { id: 13, date: "2026-03-31", time: "09:00", title: "Tsukiji Market", type: "food", location: "Tsukiji Outer Market", link: "[https://maps.app.goo.gl/XmEuw51EeaM5CvgJ7?g_st=in](https://maps.app.goo.gl/XmEuw51EeaM5CvgJ7?g_st=in)", description: "Street food breakfast: Tamagoyaki, Oysters, Scallops." },
-          { id: 14, date: "2026-03-31", time: "11:15", title: "Lunch: Uni Tora", type: "food", location: "Tsukiji Unitora Nakadori", link: "[https://maps.app.goo.gl/ZpU6kiNxzs2T1PXM6?g_st=in](https://maps.app.goo.gl/ZpU6kiNxzs2T1PXM6?g_st=in)", description: "Premium Sea Urchin Bowl." },
-          { id: 15, date: "2026-03-31", time: "13:30", title: "Tokyo Station First Avenue", type: "shopping", location: "Tokyo Station", link: "[https://maps.app.goo.gl/Hc8SedFr3u2gSkeS9?g_st=in](https://maps.app.goo.gl/Hc8SedFr3u2gSkeS9?g_st=in)", description: "Tokyo Dessert Land, Calbee, Glico, Tokyo Gift Palette." },
-          { id: 16, date: "2026-03-31", time: "16:15", title: "Sumida Park (Sakura)", type: "sightseeing", location: "Sumida Park", link: "[https://maps.app.goo.gl/3UPPYVbgx98xPeoD8?g_st=in](https://maps.app.goo.gl/3UPPYVbgx98xPeoD8?g_st=in)", description: "Must photo: Golden Asahi Foam + Skytree + Cherry Blossoms." },
-          { id: 17, date: "2026-03-31", time: "19:00", title: "Dinner: Gyutan no Lemon", type: "food", location: "Gyutan no Lemon", link: "[https://maps.app.goo.gl/3dgi68UfFoU9vE2z9?g_st=in](https://maps.app.goo.gl/3dgi68UfFoU9vE2z9?g_st=in)", description: "Thick sliced ox tongue. Reservation booked." },
-          { id: 18, date: "2026-03-31", time: "20:30", title: "Don Quijote", type: "shopping", location: "Donki Asakusa", link: "[https://maps.app.goo.gl/JeYmRN3mCF6zQdGC8?g_st=in](https://maps.app.goo.gl/JeYmRN3mCF6zQdGC8?g_st=in)", description: "Late night shopping." },
-
-          // --- April 1 (Tokyo) ---
-          { id: 19, date: "2026-04-01", time: "10:30", title: "Lunch: Aidaya", type: "food", location: "Aidaya", link: "[https://maps.app.goo.gl/xabXMHjRjXYxu9t38?g_st=in](https://maps.app.goo.gl/xabXMHjRjXYxu9t38?g_st=in)", description: "Wagyu Sukiyaki Dipping Noodles." },
-          { id: 20, date: "2026-04-01", time: "12:15", title: "Myogi Shrine", type: "sightseeing", location: "Myogi Shrine", link: "[https://maps.app.goo.gl/UTvwtwiG3Gm4yqG87?g_st=in](https://maps.app.goo.gl/UTvwtwiG3Gm4yqG87?g_st=in)", description: "Visit the shrine." },
-          { id: 21, date: "2026-04-01", time: "13:30", title: "Yanaka Ginza (Cat Town)", type: "sightseeing", location: "Yanaka Ginza", link: "[https://maps.app.goo.gl/zn62MSrQJ6YwqifN8?g_st=in](https://maps.app.goo.gl/zn62MSrQJ6YwqifN8?g_st=in)", description: "Niku no Suzuki Menchi Katsu, wandering the old streets." },
-          { id: 22, date: "2026-04-01", time: "16:45", title: "Ameyoko Shopping", type: "shopping", location: "Ameyoko", link: "[https://maps.app.goo.gl/TpZnisWe13QyTYEd6?g_st=in](https://maps.app.goo.gl/TpZnisWe13QyTYEd6?g_st=in)", description: "Niki no Kashi for snacks." },
-          { id: 23, date: "2026-04-01", time: "18:00", title: "Dinner: Yakiniku Bouya", type: "food", location: "Yakiniku Bouya Ueno", link: "[https://maps.app.goo.gl/5evmWLSHnn89oqtp6?g_st=in](https://maps.app.goo.gl/5evmWLSHnn89oqtp6?g_st=in)", description: "A5 Wagyu Yakiniku (Booked)." },
-          { id: 24, date: "2026-04-01", time: "20:00", title: "Check-in New Airbnb", type: "stay", location: "Kandagawa SAKURA Terrace", address: "4 Chome−33−14 Kitashinjuku", link: "[https://maps.app.goo.gl/RV86cGU66XKCsZqR8?g_st=in](https://maps.app.goo.gl/RV86cGU66XKCsZqR8?g_st=in)", description: "Move to Shinjuku accommodation." },
-
-          // --- April 2 (Tokyo) ---
-          { id: 25, date: "2026-04-02", time: "08:00", title: "Fuji Day Trip", type: "sightseeing", location: "Mt. Fuji Area", description: "Full day exploration of Mt. Fuji area." },
-
-          // --- April 3 (Tokyo) ---
-          { id: 26, date: "2026-04-03", time: "10:15", title: "Azabudai Hills", type: "sightseeing", location: "Azabudai Hills", description: "Modern architecture, Dashi Okume soup stock." },
-          { id: 27, date: "2026-04-03", time: "11:45", title: "Azabujuban", type: "food", location: "Azabujuban", description: "Abe Chan (Yakitori), Tsukishimaya." },
-          { id: 28, date: "2026-04-03", time: "12:50", title: "Ginza Shopping", type: "shopping", location: "Ginza", link: "[https://maps.app.goo.gl/H6LqwdyUmXGvjPkw7?g_st=in](https://maps.app.goo.gl/H6LqwdyUmXGvjPkw7?g_st=in)", description: "LoFt, GU, Uniqlo, 3COINS, Nitori." },
-          { id: 29, date: "2026-04-03", time: "17:30", title: "Miyabi Vintage", type: "shopping", location: "Higashikanda", link: "[https://maps.app.goo.gl/6n74bWHaaJonBpCP6?g_st=in](https://maps.app.goo.gl/6n74bWHaaJonBpCP6?g_st=in)", description: "Vintage shopping." },
-          { id: 30, date: "2026-04-03", time: "19:00", title: "Dinner: Kisoji", type: "food", location: "Kisoji Kamiochiai", link: "[https://maps.app.goo.gl/4tLaxqhg5k5mXcJJA?g_st=in](https://maps.app.goo.gl/4tLaxqhg5k5mXcJJA?g_st=in)", description: "Shabu-shabu / Sukiyaki dinner." },
-
-          // --- April 4 (Return) ---
-          { id: 31, date: "2026-04-04", time: "10:15", title: "Brunch: Kizuna Sushi", type: "food", location: "Shinjuku Kabukicho", link: "[https://maps.app.goo.gl/ByGjsvGHRJ7wcZHq6?g_st=in](https://maps.app.goo.gl/ByGjsvGHRJ7wcZHq6?g_st=in)", description: "Sushi brunch before flight." },
-          { id: 32, date: "2026-04-04", time: "14:20", title: "Flight to HK (UO629)", type: "transport", location: "HND -> HKG", description: "Depart 14:20, Arrive HK 18:00." }
+          { id: "1", date: "2026-03-28", time: "08:05", title: "Flight to Taipei (HB702)", type: "transport", location: "HKG -> TPE", description: "Departing HK at 08:05, Arriving TPE at 09:50." },
+          { id: "2", date: "2026-03-28", time: "12:00", title: "Lunch @ Cat Cafe", type: "food", location: "Fufu Cat Cafe", link: "https://www.instagram.com/fufucatcafe", description: "Relaxing lunch with cats." },
+          { id: "3", date: "2026-03-28", time: "14:30", title: "Nail Labo", type: "activity", location: "Nail Labo", link: "https://www.naillabotw.com/pages/store", description: "Manicure session." },
+          { id: "4", date: "2026-03-28", time: "16:00", title: "Shopping: East District & Ximending", type: "shopping", location: "Ximending", description: "Exploring the vibrant streets." },
+          { id: "5", date: "2026-03-28", time: "18:30", title: "Nanjichang Night Market", type: "food", location: "Nanjichang Night Market", link: "https://maps.app.goo.gl/V1T9TpVHHbiCtwB27?g_st=in", description: "Local street food dinner." },
+          { id: "11", date: "2026-03-30", time: "15:30", title: "Flight to Tokyo (TR870)", type: "transport", location: "TPE -> NRT", description: "Depart 15:30, Arrive Narita 19:55." },
+          { id: "12", date: "2026-03-30", time: "20:30", title: "Check-in Airbnb", type: "stay", location: "Ichiyu-Louis stage asakusa", address: "1 Chome-16 Kotobuki, Taito City", description: "Settle into Asakusa accommodation." },
+          { id: "13", date: "2026-03-31", time: "09:00", title: "Tsukiji Market", type: "food", location: "Tsukiji Outer Market", link: "https://maps.app.goo.gl/XmEuw51EeaM5CvgJ7?g_st=in", description: "Street food breakfast." },
+          { id: "24", date: "2026-04-01", time: "20:00", title: "Check-in New Airbnb", type: "stay", location: "Kandagawa SAKURA Terrace", address: "4 Chome−33−14 Kitashinjuku", link: "https://maps.app.goo.gl/RV86cGU66XKCsZqR8?g_st=in", description: "Move to Shinjuku accommodation." },
+          { id: "32", date: "2026-04-04", time: "14:20", title: "Flight to HK (UO629)", type: "transport", location: "HND -> HKG", description: "Depart 14:20, Arrive HK 18:00." }
         ];
 
         const INITIAL_FLIGHTS = [
@@ -153,8 +117,8 @@
         ];
 
         const INITIAL_HOTELS = [
-            { name: "Ichiyu-Louis stage asakusa", address: "1 Chome-16 Kotobuki, Taito City, Tokyo", notes: "Stay: Mar 30 - Apr 1" },
-            { name: "Kandagawa SAKURA Terrace", address: "4 Chome−33−14 Kitashinjuku, Shinjuku City", notes: "Stay: Apr 1 - Apr 4" }
+            { id: "h1", name: "Ichiyu-Louis stage asakusa", address: "1 Chome-16 Kotobuki, Taito City, Tokyo", notes: "Stay: Mar 30 - Apr 1", link: "https://maps.app.goo.gl/8v3M4m6xHq7z1z2a6" },
+            { id: "h2", name: "Kandagawa SAKURA Terrace", address: "4 Chome−33−14 Kitashinjuku, Shinjuku City", notes: "Stay: Apr 1 - Apr 4", link: "https://maps.app.goo.gl/RV86cGU66XKCsZqR8" }
         ];
 
         const EXPENSE_CATEGORIES = ['手信', '膳食', '交通', '個人消費', '門票', '娛樂'];
@@ -198,7 +162,73 @@
             }
         };
 
-        // --- UI COMPONENTS ---
+        // --- COMPONENTS ---
+
+        const EditModal = ({ isOpen, onClose, item, onSave, title = "Edit ✨" }) => {
+            const [formData, setFormData] = useState(item || {});
+
+            useEffect(() => {
+                if (item) setFormData(item);
+            }, [item]);
+
+            if (!isOpen) return null;
+
+            const handleChange = (e) => {
+                setFormData({ ...formData, [e.target.name]: e.target.value });
+            };
+
+            const isHotel = formData.hasOwnProperty('address') && !formData.hasOwnProperty('time');
+
+            return (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white rounded-[2rem] w-full max-w-sm p-6 shadow-2xl transform transition-all scale-100 max-h-[90vh] overflow-y-auto">
+                        <h2 className="text-xl font-bold text-gray-800 mb-6 font-heading text-center">{title}</h2>
+                        
+                        <div className="space-y-4">
+                            {!isHotel && formData.hasOwnProperty('time') && (
+                                <div className="flex gap-4">
+                                    <div className="flex-1">
+                                        <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Time</label>
+                                        <input type="time" name="time" value={formData.time} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Type</label>
+                                        <select name="type" value={formData.type} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200">
+                                            {['transport', 'food', 'shopping', 'activity', 'sightseeing', 'stay'].map(t => <option key={t} value={t}>{t}</option>)}
+                                        </select>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Hotel Name' : 'Plan Name'}</label>
+                                <input type="text" name={isHotel ? 'name' : 'title'} value={isHotel ? formData.name : formData.title} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" placeholder="Title" />
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Address' : 'Location'}</label>
+                                <input type="text" name={isHotel ? 'address' : 'location'} value={isHotel ? formData.address : formData.location} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200" />
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Google Maps Link</label>
+                                <input type="text" name="link" value={formData.link || ''} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm text-blue-500 outline-none focus:ring-2 focus:ring-pink-200" placeholder="https://..." />
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">{isHotel ? 'Stay Dates / Notes' : 'Notes'}</label>
+                                <textarea name={isHotel ? 'notes' : 'description'} value={isHotel ? formData.notes : formData.description} onChange={handleChange} rows={3} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200 resize-none"></textarea>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-3 mt-8">
+                            <button onClick={onClose} className="flex-1 py-3.5 rounded-xl bg-gray-100 text-gray-500 font-bold text-sm">Cancel</button>
+                            <button onClick={() => onSave(formData)} className="flex-1 py-3.5 rounded-xl bg-kawaii-pink text-white font-bold text-sm shadow-lg">Save</button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
 
         const TabBar = ({ activeTab, onTabChange }) => (
             <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] pb-safe pt-2 px-6 flex justify-between items-end z-50 rounded-t-[2rem] border-t border-kawaii-pink/10 h-24 pb-6">
@@ -253,131 +283,9 @@
             );
         };
 
-        const EditModal = ({ isOpen, onClose, item, onSave }) => {
-            const [formData, setFormData] = useState(item || {});
-
-            useEffect(() => {
-                if (item) setFormData(item);
-            }, [item]);
-
-            if (!isOpen) return null;
-
-            const handleChange = (e) => {
-                setFormData({ ...formData, [e.target.name]: e.target.value });
-            };
-
-            return (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white rounded-[2rem] w-full max-w-sm p-6 shadow-2xl transform transition-all scale-100 max-h-[90vh] overflow-y-auto">
-                        <h2 className="text-xl font-bold text-gray-800 mb-6 font-heading text-center">
-                            {item?.id ? 'Edit Plan ✏️' : 'New Plan ✨'}
-                        </h2>
-                        
-                        <div className="space-y-4">
-                            <div className="flex gap-4">
-                                <div className="flex-1">
-                                    <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Time</label>
-                                    <input type="time" name="time" value={formData.time} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" />
-                                </div>
-                                <div className="flex-1">
-                                    <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Type</label>
-                                    <select name="type" value={formData.type} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200">
-                                        {['transport', 'food', 'shopping', 'activity', 'sightseeing', 'stay'].map(t => <option key={t} value={t}>{t}</option>)}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Title</label>
-                                <input type="text" name="title" value={formData.title} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 font-bold text-gray-700 outline-none focus:ring-2 focus:ring-pink-200" placeholder="Activity Name" />
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Location</label>
-                                <input type="text" name="location" value={formData.location} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200" />
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Link URL</label>
-                                <input type="text" name="link" value={formData.link || ''} onChange={handleChange} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm text-blue-500 outline-none focus:ring-2 focus:ring-pink-200" placeholder="https://..." />
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-gray-400 uppercase mb-1 block">Notes</label>
-                                <textarea name="description" value={formData.description} onChange={handleChange} rows={3} className="w-full bg-gray-50 rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pink-200 resize-none"></textarea>
-                            </div>
-                        </div>
-
-                        <div className="flex gap-3 mt-8">
-                            <button onClick={onClose} className="flex-1 py-3.5 rounded-xl bg-gray-100 text-gray-500 font-bold text-sm">Cancel</button>
-                            <button onClick={() => onSave(formData)} className="flex-1 py-3.5 rounded-xl bg-kawaii-pink text-white font-bold text-sm shadow-lg">Save</button>
-                        </div>
-                    </div>
-                </div>
-            );
-        };
-
-        const ItineraryCard = ({ item, onDelete, onEdit }) => {
-            const parsedLink = useMemo(() => {
-                // Parse markdown links [Text](URL) or plain URLs
-                if (!item.link) return null;
-                const mdLinkRegex = /\[(.*?)\]\((.*?)\)/;
-                const match = item.link.match(mdLinkRegex);
-                if (match) return match[2]; // Return just the URL
-                if (item.link.startsWith('http')) return item.link;
-                return null;
-            }, [item.link]);
-
-            return (
-                <div className="bg-white rounded-3xl p-5 mb-4 shadow-sm border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
-                    {/* Decorative gradient blob */}
-                    <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-20 blur-xl ${item.type === 'transport' ? 'bg-blue-300' : 'bg-pink-300'}`}></div>
-
-                    <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-2">
-                            <div className="flex items-center gap-2">
-                                <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${getTypeColor(item.type)}`}>
-                                    {item.type}
-                                </span>
-                                <span className="text-sm font-bold text-gray-400 font-mono bg-gray-50 px-2 py-0.5 rounded-lg">{item.time}</span>
-                            </div>
-                            
-                            <div className="flex gap-1">
-                                {parsedLink && (
-                                    <a href={parsedLink} target="_blank" className="p-2 text-white bg-kawaii-blue hover:bg-sky-400 rounded-full transition-colors shadow-sm" title="Open Map">
-                                        <Icons.Map />
-                                    </a>
-                                )}
-                                <button onClick={() => onEdit(item)} className="p-2 text-gray-400 hover:text-kawaii-purple hover:bg-purple-50 rounded-full transition-colors">
-                                    <Icons.Edit />
-                                </button>
-                                <button onClick={() => onDelete(item.id)} className="p-2 text-gray-300 hover:text-red-400 hover:bg-red-50 rounded-full transition-colors">
-                                    <Icons.Trash />
-                                </button>
-                            </div>
-                        </div>
-
-                        <h3 className="text-lg font-bold text-gray-800 leading-tight mb-1 pr-8">{item.title}</h3>
-                        
-                        {item.location && (
-                            <div className="text-xs font-medium text-gray-500 mb-3 flex items-center">
-                                <span className="text-kawaii-pink mr-1">📍</span> {item.location}
-                            </div>
-                        )}
-
-                        <p className="text-sm text-gray-500 font-light leading-relaxed bg-gray-50/50 p-3 rounded-xl border border-gray-100/50">
-                            {item.description}
-                        </p>
-                    </div>
-                </div>
-            );
-        };
-
         const WeatherWidget = ({ date }) => {
             const [weather, setWeather] = useState(null);
-            const [status, setStatus] = useState('loading'); // loading, success, future, error
-
-            // Logic: Mar 28-30 (Taipei), Mar 31+ (Tokyo)
+            const [status, setStatus] = useState('loading');
             const isTaipei = new Date(date) <= new Date("2026-03-30");
             const location = isTaipei ? { name: "Taipei", lat: 25.0330, lon: 121.5654 } : { name: "Tokyo", lat: 35.6762, lon: 139.6503 };
 
@@ -387,42 +295,30 @@
                     setStatus('loading');
                     try {
                         const url = `https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&start_date=${date}&end_date=${date}`;
-                        
                         const res = await fetch(url);
                         if (!res.ok) throw new Error("API Error");
                         const data = await res.json();
-                        
                         if (mounted) {
                             if (data.daily?.time?.length > 0) {
-                                setWeather({
-                                    max: Math.round(data.daily.temperature_2m_max[0]),
-                                    min: Math.round(data.daily.temperature_2m_min[0]),
-                                    code: data.daily.weather_code[0]
-                                });
+                                setWeather({ max: Math.round(data.daily.temperature_2m_max[0]), min: Math.round(data.daily.temperature_2m_min[0]), code: data.daily.weather_code[0] });
                                 setStatus('success');
-                            } else {
-                                setStatus('future'); // Graceful fallback
-                            }
+                            } else { setStatus('future'); }
                         }
-                    } catch (e) {
-                        if (mounted) setStatus('future'); 
-                    }
+                    } catch (e) { if (mounted) setStatus('future'); }
                 };
                 fetchWeather();
                 return () => mounted = false;
             }, [date, location.lat]);
 
             const renderIcon = (code) => {
-                if (code === undefined) return <Icons.Sun />;
-                if (code <= 3) return <Icons.Sun />;
+                if (code === undefined || code <= 3) return <Icons.Sun />;
                 if (code >= 45 && code <= 48) return <Icons.Cloud />;
                 if (code >= 51) return <Icons.Rain />;
                 return <Icons.Sun />;
             };
 
             const renderText = (code) => {
-                 if (code === undefined) return "Sunny";
-                 if (code <= 3) return "Clear/Cloudy";
+                 if (code === undefined || code <= 3) return "Clear/Cloudy";
                  if (code <= 48) return "Foggy";
                  if (code <= 67) return "Rainy";
                  return "Showers";
@@ -432,9 +328,7 @@
                 <div className="bg-gradient-to-br from-[#89f7fe] to-[#66a6ff] rounded-3xl p-6 text-white shadow-lg mb-8 relative overflow-hidden transition-all duration-500">
                     <div className="relative z-10 flex justify-between items-center">
                         <div>
-                            <h2 className="text-sm font-bold uppercase tracking-widest opacity-80 mb-1 flex items-center gap-2">
-                                <Icons.Map /> {location.name}
-                            </h2>
+                            <h2 className="text-sm font-bold uppercase tracking-widest opacity-80 mb-1 flex items-center gap-2"><Icons.Map /> {location.name}</h2>
                             {status === 'loading' && <div className="text-2xl font-bold animate-pulse">Checking...</div>}
                             {status === 'future' && (
                                 <div>
@@ -449,11 +343,8 @@
                                 </div>
                             )}
                         </div>
-                        <div className="animate-float">
-                            {status === 'success' ? renderIcon(weather.code) : <Icons.Sun />}
-                        </div>
+                        <div className="animate-float">{status === 'success' ? renderIcon(weather.code) : <Icons.Sun />}</div>
                     </div>
-                    {/* Background decorations */}
                     <div className="absolute top-[-20%] right-[-10%] w-32 h-32 bg-white opacity-20 rounded-full blur-2xl"></div>
                     <div className="absolute bottom-[-20%] left-[-10%] w-24 h-24 bg-white opacity-10 rounded-full blur-xl"></div>
                 </div>
@@ -477,153 +368,173 @@
                 const s = localStorage.getItem('kawaii_rates');
                 return s ? JSON.parse(s) : DEFAULT_RATES;
             });
+            const [hotels, setHotels] = useState(() => {
+                const s = localStorage.getItem('kawaii_hotels');
+                return s ? JSON.parse(s) : INITIAL_HOTELS;
+            });
             
-            // Modal State
+            // Modal States
             const [isModalOpen, setIsModalOpen] = useState(false);
             const [editingItem, setEditingItem] = useState(null);
+            const [isHotelModalOpen, setIsHotelModalOpen] = useState(false);
+            const [editingHotel, setEditingHotel] = useState(null);
 
             useEffect(() => { localStorage.setItem('kawaii_itinerary', JSON.stringify(itinerary)); }, [itinerary]);
             useEffect(() => { localStorage.setItem('kawaii_expenses', JSON.stringify(expenses)); }, [expenses]);
             useEffect(() => { localStorage.setItem('kawaii_rates', JSON.stringify(rates)); }, [rates]);
+            useEffect(() => { localStorage.setItem('kawaii_hotels', JSON.stringify(hotels)); }, [hotels]);
 
             // --- COMPUTED ---
             const dailyItems = useMemo(() => itinerary.filter(i => i.date === selectedDate).sort((a,b) => a.time.localeCompare(b.time)), [itinerary, selectedDate]);
             const totalHKD = useMemo(() => expenses.reduce((sum, item) => sum + (item.amount * rates[item.currency]), 0), [expenses, rates]);
+            
+            const totalAmyHKD = useMemo(() => expenses.filter(e => e.payer === 'Amy').reduce((sum, item) => sum + (item.amount * rates[item.currency]), 0), [expenses, rates]);
+            const totalLaiHKD = useMemo(() => expenses.filter(e => e.payer === 'Lai').reduce((sum, item) => sum + (item.amount * rates[item.currency]), 0), [expenses, rates]);
 
             // --- HANDLERS ---
-            const handleDelete = (id) => { if(confirm("Delete item?")) setItinerary(prev => prev.filter(i => i.id !== id)); };
+            const handleDeleteItinerary = (id) => { if(confirm("Delete item?")) setItinerary(prev => prev.filter(i => i.id !== id)); };
+            const handleDeleteExpense = (id) => { if(confirm("Delete expense record?")) setExpenses(prev => prev.filter(e => e.id !== id)); };
+            const handleDeleteHotel = (id) => { if(confirm("Delete hotel?")) setHotels(prev => prev.filter(h => h.id !== id)); };
             
-            const handleEditClick = (item) => {
-                setEditingItem(item);
+            const handleEditItineraryClick = (item) => { setEditingItem(item); setIsModalOpen(true); };
+            const handleAddNewItineraryClick = () => {
+                setEditingItem({ id: Date.now().toString(), date: selectedDate, time: '12:00', title: '', type: 'food', location: '', description: '', link: '' });
                 setIsModalOpen(true);
             };
-
-            const handleAddNewClick = () => {
-                setEditingItem({
-                    id: '',
-                    date: selectedDate,
-                    time: '12:00',
-                    title: '',
-                    type: 'food',
-                    location: '',
-                    description: '',
-                    link: ''
+            const handleSaveItineraryItem = (formData) => {
+                setItinerary(prev => {
+                   const index = prev.findIndex(i => i.id === formData.id);
+                   if (index > -1) {
+                       const next = [...prev];
+                       next[index] = formData;
+                       return next;
+                   }
+                   return [...prev, formData];
                 });
-                setIsModalOpen(true);
+                setIsModalOpen(false);
             };
 
-            const handleSaveItem = (formData) => {
-                if (formData.id) {
-                    setItinerary(prev => prev.map(i => i.id === formData.id ? formData : i));
-                } else {
-                    setItinerary(prev => [...prev, { ...formData, id: Date.now().toString() }]);
-                }
-                setIsModalOpen(false);
+            const handleEditHotelClick = (hotel) => { setEditingHotel(hotel); setIsHotelModalOpen(true); };
+            const handleAddNewHotelClick = () => {
+                setEditingHotel({ id: Date.now().toString(), name: '', address: '', notes: '', link: '' });
+                setIsHotelModalOpen(true);
+            };
+            const handleSaveHotelItem = (formData) => {
+                setHotels(prev => {
+                   const index = prev.findIndex(h => h.id === formData.id);
+                   if (index > -1) {
+                       const next = [...prev];
+                       next[index] = formData;
+                       return next;
+                   }
+                   return [...prev, formData];
+                });
+                setIsHotelModalOpen(false);
             };
 
             const handleAddExpense = (e) => {
                 e.preventDefault();
                 const fd = new FormData(e.target);
-                const item = {
-                    id: Date.now(),
-                    date: fd.get('date'),
-                    amount: parseFloat(fd.get('amount')),
-                    currency: fd.get('currency'),
-                    category: fd.get('category'),
-                    payer: fd.get('payer'),
-                    method: fd.get('method'),
-                    remark: fd.get('remark')
-                };
+                const item = { id: Date.now().toString(), date: fd.get('date'), amount: parseFloat(fd.get('amount')), currency: fd.get('currency'), category: fd.get('category'), payer: fd.get('payer'), method: fd.get('method'), remark: fd.get('remark') };
                 setExpenses(prev => [item, ...prev]);
                 e.target.reset();
             };
 
             return (
                 <div className="min-h-screen pb-32 max-w-md mx-auto bg-kawaii-bg shadow-2xl relative">
-                    
-                    {/* Header */}
                     <header className="pt-8 pb-4 px-6 bg-white/50 backdrop-blur-sm sticky top-0 z-40 rounded-b-[2rem]">
                         <div className="flex justify-between items-center">
                             <div>
                                 <h1 className="text-2xl font-bold text-kawaii-text font-heading">Taipei & Tokyo</h1>
                                 <p className="text-xs font-bold text-kawaii-pink tracking-widest uppercase mt-0.5">Amy & Lai's Trip 2026</p>
                             </div>
-                            <div className="bg-white p-2 rounded-full shadow-soft">
-                                <span className="text-2xl">✈️</span>
-                            </div>
+                            <div className="bg-white p-2 rounded-full shadow-soft"><span className="text-2xl">✈️</span></div>
                         </div>
                     </header>
 
                     <main className="pt-2">
-                        
-                        {/* TAB 1: ITINERARY */}
                         {activeTab === 'itinerary' && (
                             <div className="animate-fade-in">
                                 <DateSelector selectedDate={selectedDate} onSelect={setSelectedDate} />
                                 <div className="px-6 mt-6">
                                     <WeatherWidget date={selectedDate} />
-                                    
                                     <div className="flex items-center justify-between mb-4">
                                         <h3 className="font-bold text-lg text-gray-700">Timeline</h3>
                                         <span className="bg-white px-3 py-1 rounded-full text-xs font-bold text-kawaii-purple shadow-sm">{dailyItems.length} Plans</span>
                                     </div>
-                                    
                                     {dailyItems.length === 0 ? (
-                                        <div className="text-center py-12 opacity-40">
-                                            <div className="text-4xl mb-2">💤</div>
-                                            <p className="font-medium">Free time!</p>
-                                        </div>
+                                        <div className="text-center py-12 opacity-40"><div className="text-4xl mb-2">💤</div><p className="font-medium">Free time!</p></div>
                                     ) : (
                                         dailyItems.map(item => (
-                                            <ItineraryCard 
-                                                key={item.id} 
-                                                item={item} 
-                                                onDelete={handleDelete} 
-                                                onEdit={handleEditClick}
-                                            />
+                                            <div key={item.id} className="bg-white rounded-3xl p-5 mb-4 shadow-sm border border-gray-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                                <div className={`absolute -right-4 -top-4 w-24 h-24 rounded-full opacity-20 blur-xl ${item.type === 'transport' ? 'bg-blue-300' : 'bg-pink-300'}`}></div>
+                                                <div className="relative z-10">
+                                                    <div className="flex justify-between items-start mb-2">
+                                                        <div className="flex items-center gap-2">
+                                                            <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${getTypeColor(item.type)}`}>
+                                                                {item.type}
+                                                            </span>
+                                                            <span className="text-sm font-bold text-gray-400 font-mono bg-gray-50 px-2 py-0.5 rounded-lg">{item.time}</span>
+                                                        </div>
+                                                        <div className="flex gap-1">
+                                                            {item.link && (
+                                                                <a href={item.link} target="_blank" className="p-2 text-white bg-kawaii-blue hover:bg-sky-400 rounded-full transition-colors shadow-sm" title="Open Map">
+                                                                    <Icons.Map />
+                                                                </a>
+                                                            )}
+                                                            <button onClick={() => handleEditItineraryClick(item)} className="p-2 text-gray-400 hover:text-kawaii-purple hover:bg-purple-50 rounded-full transition-colors"><Icons.Edit /></button>
+                                                            <button onClick={() => handleDeleteItinerary(item.id)} className="p-2 text-gray-300 hover:text-red-400 hover:bg-red-50 rounded-full transition-colors"><Icons.Trash /></button>
+                                                        </div>
+                                                    </div>
+                                                    <h3 className="text-lg font-bold text-gray-800 leading-tight mb-1 pr-8">{item.title}</h3>
+                                                    {item.location && (
+                                                        <div className="text-xs font-medium text-gray-500 mb-3 flex items-center">
+                                                            <span className="text-kawaii-pink mr-1">📍</span> {item.location}
+                                                        </div>
+                                                    )}
+                                                    <p className="text-sm text-gray-500 font-light leading-relaxed bg-gray-50/50 p-3 rounded-xl border border-gray-100/50">{item.description}</p>
+                                                </div>
+                                            </div>
                                         ))
                                     )}
-                                    
-                                    <button 
-                                        onClick={handleAddNewClick}
-                                        className="w-full py-4 mt-6 rounded-2xl border-2 border-dashed border-gray-300 text-gray-400 font-bold hover:border-kawaii-pink hover:text-kawaii-pink transition-all flex items-center justify-center gap-2 group bg-white/50"
-                                    >
-                                        <span className="group-hover:scale-110 transition-transform"><Icons.Plus /></span>
-                                        Add New Activity
+                                    <button onClick={handleAddNewItineraryClick} className="w-full py-4 mt-6 rounded-2xl border-2 border-dashed border-gray-300 text-gray-400 font-bold hover:border-kawaii-pink hover:text-kawaii-pink transition-all flex items-center justify-center gap-2 group bg-white/50">
+                                        <span className="group-hover:scale-110 transition-transform"><Icons.Plus /></span> Add New Activity
                                     </button>
                                 </div>
                             </div>
                         )}
 
-                        {/* TAB 2: EXPENSES */}
                         {activeTab === 'expenses' && (
                             <div className="px-6 pt-4 animate-fade-in space-y-6">
-                                {/* Summary Card */}
                                 <div className="bg-gray-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
                                     <div className="absolute right-0 top-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
                                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Total Trip Cost</p>
-                                    <h2 className="text-4xl font-bold font-mono tracking-tighter">HK${totalHKD.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</h2>
-                                    <div className="mt-4 pt-4 border-t border-gray-700 flex justify-between items-center">
+                                    <h2 className="text-4xl font-bold font-mono tracking-tighter mb-4">HK${totalHKD.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</h2>
+                                    
+                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
+                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Amy Paid</p>
+                                            <p className="text-sm font-bold font-mono">HK${totalAmyHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
+                                        </div>
+                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
+                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Lai Paid</p>
+                                            <p className="text-sm font-bold font-mono">HK${totalLaiHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="pt-4 border-t border-gray-700 flex justify-between items-center">
                                         <span className="text-xs text-gray-400">Cost per person</span>
                                         <span className="text-lg font-bold">HK${(totalHKD/2).toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</span>
                                     </div>
                                 </div>
 
-                                {/* Form */}
                                 <div className="bg-white rounded-[2rem] p-6 shadow-soft">
-                                    <h3 className="font-bold text-lg text-gray-700 mb-5 flex items-center">
-                                        <span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 text-green-600 text-sm">＋</span> 
-                                        New Expense
-                                    </h3>
-                                    
+                                    <h3 className="font-bold text-lg text-gray-700 mb-5 flex items-center"><span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 text-green-600 text-sm">＋</span> New Expense</h3>
                                     <form onSubmit={handleAddExpense} className="space-y-4">
-                                        {/* Row 1: Date */}
                                         <div>
                                             <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Date</label>
                                             <input type="date" name="date" required defaultValue={new Date().toISOString().split('T')[0]} className="w-full bg-kawaii-bg rounded-xl px-4 py-3 text-sm font-bold text-gray-600 outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all appearance-none" />
                                         </div>
-
-                                        {/* Row 2: Amount + Currency (ROBUST LAYOUT) */}
                                         <div className="flex gap-3">
                                             <div className="flex-1 min-w-0">
                                                  <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Amount</label>
@@ -632,28 +543,21 @@
                                             <div className="w-24 flex-shrink-0">
                                                 <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Curr</label>
                                                 <select name="currency" className="w-full bg-kawaii-bg rounded-xl px-3 py-3.5 font-bold text-gray-600 outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all h-[52px]">
-                                                    <option value="JPY">JPY</option>
-                                                    <option value="TWD">TWD</option>
-                                                    <option value="HKD">HKD</option>
+                                                    <option value="JPY">JPY</option><option value="TWD">TWD</option><option value="HKD">HKD</option>
                                                 </select>
                                             </div>
                                         </div>
-
-                                        {/* Row 3: Category */}
                                         <div>
                                             <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Category</label>
                                             <select name="category" className="w-full bg-kawaii-bg rounded-xl px-4 py-3 text-sm font-bold text-gray-600 outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all">
                                                 {EXPENSE_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
                                             </select>
                                         </div>
-
-                                        {/* Row 4: Payer + Method */}
                                         <div className="flex gap-3">
                                             <div className="flex-1 min-w-0">
                                                 <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Payer</label>
                                                 <select name="payer" className="w-full bg-kawaii-bg rounded-xl px-3 py-3 text-sm font-bold text-gray-600 outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all">
-                                                    <option value="Amy">Amy</option>
-                                                    <option value="Lai">Lai</option>
+                                                    <option value="Amy">Amy</option><option value="Lai">Lai</option>
                                                 </select>
                                             </div>
                                             <div className="flex-1 min-w-0">
@@ -663,39 +567,40 @@
                                                 </select>
                                             </div>
                                         </div>
-
-                                        {/* Row 5: Remark */}
                                         <div>
                                             <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Remark</label>
                                             <input type="text" name="remark" placeholder="Description..." className="w-full bg-kawaii-bg rounded-xl px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all" />
                                         </div>
-
-                                        <button type="submit" className="w-full bg-gradient-to-r from-kawaii-pink to-kawaii-hotPink text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 mt-4">
-                                            Add Expense ✨
-                                        </button>
+                                        <button type="submit" className="w-full bg-gradient-to-r from-kawaii-pink to-kawaii-hotPink text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 mt-4">Add Expense ✨</button>
                                     </form>
                                 </div>
 
-                                {/* History List */}
                                 <div className="pb-8">
                                     <h3 className="font-bold text-gray-400 text-xs uppercase tracking-wider mb-3 ml-2">History</h3>
                                     <div className="space-y-3">
                                         {[...expenses].sort((a,b) => new Date(b.date) - new Date(a.date)).map((exp) => (
-                                            <div key={exp.id} className="bg-white p-4 rounded-2xl shadow-sm flex justify-between items-center border border-gray-50">
-                                                <div>
+                                            <div key={exp.id} className="bg-white p-4 rounded-2xl shadow-sm flex justify-between items-center border border-gray-50 group transition-all">
+                                                <div className="flex-1 mr-4">
                                                     <div className="font-bold text-gray-700 text-sm">{exp.remark || exp.category}</div>
-                                                    <div className="text-[10px] text-gray-400 mt-1 flex items-center gap-2">
-                                                        <span className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-500">{exp.date.slice(5)}</span>
-                                                        <span>{exp.payer}</span>
+                                                    <div className="text-[10px] text-gray-400 mt-1 flex flex-wrap items-center gap-2">
+                                                        <span className="bg-gray-100 px-1.5 py-0.5 rounded text-gray-500 whitespace-nowrap">{exp.date.slice(5)}</span>
+                                                        <span className={`px-1.5 py-0.5 rounded whitespace-nowrap ${exp.payer === 'Amy' ? 'bg-pink-50 text-pink-400' : 'bg-blue-50 text-blue-400'}`}>{exp.payer}</span>
                                                         <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                                        <span>{exp.method}</span>
+                                                        <span className="whitespace-nowrap">{exp.method}</span>
                                                     </div>
                                                 </div>
-                                                <div className="text-right">
-                                                    <div className="font-mono font-bold text-gray-800 text-sm">{exp.currency} {exp.amount}</div>
-                                                    {exp.currency !== 'HKD' && (
-                                                        <div className="text-[10px] text-gray-400">≈ HK${(exp.amount * rates[exp.currency]).toFixed(1)}</div>
-                                                    )}
+                                                <div className="text-right flex items-center gap-3">
+                                                    <div>
+                                                        <div className="font-mono font-bold text-gray-800 text-sm">{exp.currency} {exp.amount}</div>
+                                                        {exp.currency !== 'HKD' && (<div className="text-[10px] text-gray-400">≈ HK${(exp.amount * rates[exp.currency]).toFixed(1)}</div>)}
+                                                    </div>
+                                                    <button 
+                                                        onClick={() => handleDeleteExpense(exp.id)} 
+                                                        className="p-2.5 text-red-300 hover:text-red-500 bg-red-50 rounded-full transition-all active:scale-90"
+                                                        aria-label="Delete expense"
+                                                    >
+                                                        <Icons.Trash />
+                                                    </button>
                                                 </div>
                                             </div>
                                         ))}
@@ -704,35 +609,56 @@
                             </div>
                         )}
 
-                        {/* TAB 3: TOOLS */}
                         {activeTab === 'tools' && (
                             <div className="px-6 pt-4 animate-fade-in space-y-6">
-                                
                                 <section>
-                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2">
-                                        <span className="bg-blue-100 p-1.5 rounded-lg text-blue-500"><Icons.Map /></span> Transport Maps
-                                    </h3>
+                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2"><span className="bg-blue-100 p-1.5 rounded-lg text-blue-500"><Icons.Map /></span> Transport Maps</h3>
                                     <div className="grid grid-cols-2 gap-3">
                                         <a href="https://www.travel.taipei/Content/images/static/travel-tips/metrotaipeimap.jpg" target="_blank" className="bg-white p-4 rounded-2xl shadow-sm border border-blue-50 flex flex-col items-center justify-center text-center hover:bg-blue-50 transition-colors">
-                                            <span className="text-2xl mb-2">🚇</span>
-                                            <span className="font-bold text-gray-700 text-sm">Taipei Metro</span>
+                                            <span className="text-2xl mb-2">🚇</span><span className="font-bold text-gray-700 text-sm">Taipei Metro</span>
                                         </a>
                                         <a href="https://www.kotsu.metro.tokyo.jp/ch_h/services/pdf/sub_map_ch_t.pdf" target="_blank" className="bg-white p-4 rounded-2xl shadow-sm border border-blue-50 flex flex-col items-center justify-center text-center hover:bg-blue-50 transition-colors">
-                                            <span className="text-2xl mb-2">🚆</span>
-                                            <span className="font-bold text-gray-700 text-sm">Tokyo JR Map</span>
+                                            <span className="text-2xl mb-2">🚆</span><span className="font-bold text-gray-700 text-sm">Tokyo Subway</span>
                                         </a>
                                     </div>
                                 </section>
 
                                 <section>
-                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2">
-                                        <span className="bg-blue-100 p-1.5 rounded-lg text-blue-500"><Icons.Plane /></span> Flights
-                                    </h3>
+                                    <div className="flex justify-between items-center mb-3">
+                                        <h3 className="font-bold text-lg text-kawaii-text flex items-center gap-2">
+                                            <span className="bg-purple-100 p-1.5 rounded-lg text-purple-500"><Icons.Stay /></span> Hotels
+                                        </h3>
+                                        <button onClick={handleAddNewHotelClick} className="p-2 bg-purple-100 text-purple-500 rounded-full hover:bg-purple-200 transition-colors">
+                                            <Icons.Plus />
+                                        </button>
+                                    </div>
+                                    <div className="space-y-3">
+                                        {hotels.map(h => (
+                                            <div key={h.id} className="bg-white rounded-2xl p-4 shadow-sm border border-purple-50 relative group transition-all">
+                                                <div className="flex justify-between items-start mb-1">
+                                                    <h4 className="font-bold text-gray-800 text-sm pr-8">{h.name}</h4>
+                                                    <div className="flex gap-1">
+                                                        {h.link && (
+                                                            <a href={h.link} target="_blank" className="p-2 bg-kawaii-blue text-white rounded-full transition-transform active:scale-90" title="Open Map">
+                                                                <Icons.Map />
+                                                            </a>
+                                                        )}
+                                                        <button onClick={() => handleEditHotelClick(h)} className="p-2 text-gray-400 hover:text-purple-500 bg-gray-50 rounded-full transition-all active:scale-90"><Icons.Edit /></button>
+                                                        <button onClick={() => handleDeleteHotel(h.id)} className="p-2 text-red-200 hover:text-red-400 bg-red-50 rounded-full transition-all active:scale-90"><Icons.Trash /></button>
+                                                    </div>
+                                                </div>
+                                                <div className="text-xs text-gray-400 mb-2 leading-tight">{h.address}</div>
+                                                <div className="bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded inline-block uppercase tracking-wide whitespace-pre-wrap">{h.notes}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2"><span className="bg-blue-100 p-1.5 rounded-lg text-blue-500"><Icons.Plane /></span> Flights</h3>
                                     {INITIAL_FLIGHTS.map(f => (
                                         <div key={f.code} className="bg-white rounded-2xl p-4 shadow-sm border border-blue-50 mb-3">
-                                            <div className="flex justify-between items-center mb-2">
-                                                <span className="bg-blue-50 text-blue-600 px-2 py-1 rounded-md text-xs font-bold tracking-wider">{f.code}</span>
-                                            </div>
+                                            <div className="flex justify-between items-center mb-2"><span className="bg-blue-50 text-blue-600 px-2 py-1 rounded-md text-xs font-bold tracking-wider">{f.code}</span></div>
                                             <div className="text-gray-800 font-bold mb-1">{f.route}</div>
                                             <div className="text-xs text-gray-500 font-mono bg-gray-50 inline-block px-2 py-1 rounded">{f.time}</div>
                                         </div>
@@ -740,24 +666,7 @@
                                 </section>
 
                                 <section>
-                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2">
-                                        <span className="bg-purple-100 p-1.5 rounded-lg text-purple-500"><Icons.Stay /></span> Hotels
-                                    </h3>
-                                    {INITIAL_HOTELS.map(h => (
-                                        <div key={h.name} className="bg-white rounded-2xl p-4 shadow-sm border border-purple-50 mb-3">
-                                            <h4 className="font-bold text-gray-800 text-sm mb-1">{h.name}</h4>
-                                            <div className="text-xs text-gray-400 mb-2 leading-tight">{h.address}</div>
-                                            <div className="bg-purple-50 text-purple-600 text-[10px] font-bold px-2 py-1 rounded inline-block uppercase tracking-wide">
-                                                {h.notes}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </section>
-
-                                <section>
-                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2">
-                                        <span className="bg-green-100 p-1.5 rounded-lg text-green-500"><Icons.Wallet /></span> Rates
-                                    </h3>
+                                    <h3 className="font-bold text-lg text-kawaii-text mb-3 flex items-center gap-2"><span className="bg-green-100 p-1.5 rounded-lg text-green-500"><Icons.Wallet /></span> Rates</h3>
                                     <div className="bg-white p-5 rounded-3xl shadow-sm border border-gray-50 space-y-4">
                                         {Object.entries(rates).map(([curr, rate]) => (
                                             <div key={curr} className="flex justify-between items-center">
@@ -767,13 +676,7 @@
                                                 </div>
                                                 <div className="flex items-center gap-2">
                                                     <span className="text-xs text-gray-400 font-bold">HKD</span>
-                                                    <input 
-                                                        type="number" 
-                                                        value={rate}
-                                                        step="0.001"
-                                                        onChange={(e) => setRates({...rates, [curr]: parseFloat(e.target.value)})}
-                                                        className="w-20 bg-gray-50 rounded-lg px-2 py-1 text-right font-mono text-sm font-bold outline-none focus:ring-2 focus:ring-green-200 transition-all"
-                                                    />
+                                                    <input type="number" value={rate} step="0.001" onChange={(e) => setRates({...rates, [curr]: parseFloat(e.target.value)})} className="w-20 bg-gray-50 rounded-lg px-2 py-1 text-right font-mono text-sm font-bold outline-none focus:ring-2 focus:ring-green-200 transition-all" />
                                                 </div>
                                             </div>
                                         ))}
@@ -781,23 +684,26 @@
                                 </section>
 
                                 <div className="pt-4 pb-8 text-center">
-                                    <button 
-                                        onClick={() => { if(confirm('⚠️ Reset all app data?')) { localStorage.clear(); window.location.reload(); } }} 
-                                        className="text-xs text-red-300 hover:text-red-500 font-bold uppercase tracking-widest hover:underline"
-                                    >
-                                        Reset Data
-                                    </button>
+                                    <button onClick={() => { if(confirm('⚠️ Reset all app data?')) { localStorage.clear(); window.location.reload(); } }} className="text-xs text-red-300 hover:text-red-500 font-bold uppercase tracking-widest hover:underline">Reset Data</button>
                                 </div>
                             </div>
                         )}
                     </main>
 
-                    {/* MODAL */}
+                    {/* MODALS */}
                     <EditModal 
                         isOpen={isModalOpen} 
                         onClose={() => setIsModalOpen(false)} 
-                        item={editingItem}
-                        onSave={handleSaveItem}
+                        item={editingItem} 
+                        onSave={handleSaveItineraryItem} 
+                        title="Manage Activity ✨"
+                    />
+                    <EditModal 
+                        isOpen={isHotelModalOpen} 
+                        onClose={() => setIsHotelModalOpen(false)} 
+                        item={editingHotel} 
+                        onSave={handleSaveHotelItem} 
+                        title="Manage Hotel 🏨" 
                     />
 
                     <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
