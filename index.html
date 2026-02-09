@@ -72,7 +72,8 @@
                     borderRadius: {
                         'xl': '1rem',
                         '2xl': '1.5rem',
-                        '3xl': '2rem'
+                        '3xl': '2rem',
+                        '4xl': '3rem'
                     },
                     boxShadow: {
                         'soft': '0 8px 30px rgba(255, 183, 197, 0.3)',
@@ -130,6 +131,15 @@
             'TWD': 0.25
         };
 
+        const CATEGORY_HEX_COLORS = {
+            '手信': '#F9A8D4',
+            '膳食': '#FDBA74',
+            '交通': '#93C5FD',
+            '個人消費': '#D8B4FE',
+            '門票': '#86EFAC',
+            '娛樂': '#FDE047'
+        };
+
         // --- ICONS (Inline SVG) ---
         const Icons = {
             Plane: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>,
@@ -148,6 +158,7 @@
             Sun: () => <svg className="w-16 h-16 text-yellow-300 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"/></svg>,
             Rain: () => <svg className="w-16 h-16 text-blue-300 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.5 10a4.5 4.5 0 018.9-1.44 2.5 2.5 0 013.546 2.94 4.5 4.5 0 01-1.92 8.496H5.5a4.5 4.5 0 010-9zM10 14a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z" clipRule="evenodd"/></svg>,
             Cloud: () => <svg className="w-16 h-16 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path d="M5.5 10a4.5 4.5 0 018.9-1.44 2.5 2.5 0 013.546 2.94 4.5 4.5 0 01-1.92 8.496H5.5a4.5 4.5 0 010-9z" /></svg>,
+            Chart: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>,
         };
 
         const getTypeColor = (type) => {
@@ -351,6 +362,41 @@
             );
         };
 
+        const PieChart = ({ data, total }) => {
+            const gradientParts = [];
+            let cumulativePercent = 0;
+
+            const sortedEntries = Object.entries(data).filter(([_, val]) => val > 0);
+            
+            if (total === 0 || sortedEntries.length === 0) {
+                return (
+                    <div className="w-40 h-40 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 text-xs font-bold">
+                        No Data Yet
+                    </div>
+                );
+            }
+
+            sortedEntries.forEach(([cat, amount]) => {
+                const percent = (amount / total) * 100;
+                const nextPercent = cumulativePercent + percent;
+                gradientParts.push(`${CATEGORY_HEX_COLORS[cat]} ${cumulativePercent}% ${nextPercent}%`);
+                cumulativePercent = nextPercent;
+            });
+
+            const style = {
+                background: `conic-gradient(${gradientParts.join(', ')})`
+            };
+
+            return (
+                <div className="relative w-48 h-48 rounded-full shadow-inner-soft flex items-center justify-center group" style={style}>
+                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center flex-col shadow-soft border border-gray-50 z-10 transition-transform group-hover:scale-110">
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Total</span>
+                        <span className="text-sm font-bold text-gray-800">HK${Math.round(total).toLocaleString()}</span>
+                    </div>
+                </div>
+            );
+        };
+
         const App = () => {
             const [activeTab, setActiveTab] = useState('itinerary');
             const [selectedDate, setSelectedDate] = useState(TRIP_DATES[0]);
@@ -390,6 +436,15 @@
             
             const totalAmyHKD = useMemo(() => expenses.filter(e => e.payer === 'Amy').reduce((sum, item) => sum + (item.amount * rates[item.currency]), 0), [expenses, rates]);
             const totalLaiHKD = useMemo(() => expenses.filter(e => e.payer === 'Lai').reduce((sum, item) => sum + (item.amount * rates[item.currency]), 0), [expenses, rates]);
+
+            const categoryData = useMemo(() => {
+                const data = {};
+                EXPENSE_CATEGORIES.forEach(cat => data[cat] = 0);
+                expenses.forEach(exp => {
+                    data[exp.category] += (exp.amount * rates[exp.currency]);
+                });
+                return data;
+            }, [expenses, rates]);
 
             // --- HANDLERS ---
             const handleDeleteItinerary = (id) => { if(confirm("Delete item?")) setItinerary(prev => prev.filter(i => i.id !== id)); };
@@ -442,17 +497,29 @@
 
             return (
                 <div className="min-h-screen pb-32 max-w-md mx-auto bg-kawaii-bg shadow-2xl relative">
-                    <header className="pt-8 pb-4 px-6 bg-white/50 backdrop-blur-sm sticky top-0 z-40 rounded-b-[2rem]">
-                        <div className="flex justify-between items-center">
-                            <div>
-                                <h1 className="text-2xl font-bold text-kawaii-text font-heading">Taipei & Tokyo</h1>
-                                <p className="text-xs font-bold text-kawaii-pink tracking-widest uppercase mt-0.5">Amy & Lai's Trip 2026</p>
+                    <header className="relative h-60 overflow-hidden rounded-b-4xl shadow-lg bg-white">
+                        {/* REPLACED HEADER BACKGROUND WITH THE UPLOADED ILLUSTRATION */}
+                        <img 
+                            src="https://raw.githubusercontent.com/amychowwy/twjp2026/3a2b1bad76b7d297aed8bdbb7b7d08809e61c51a/WhatsApp%20Image%202026-02-09%20at%201.46.38%20PM.jpeg" 
+                            className="absolute inset-0 w-full h-full object-cover opacity-100 transition-all duration-700"
+                            alt="Amy & Lai Travel Illustration"
+                        />
+                        {/* Frosted Layer */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                        
+                        {/* Word Box with 60% Transparency - Wording can be seen easily */}
+                        <div className="absolute bottom-6 left-6 right-6">
+                            <div className="bg-white/60 backdrop-blur-md p-5 rounded-3xl shadow-xl border border-white/40 animate-fade-in">
+                                <h1 className="text-2xl font-bold text-gray-800 font-heading tracking-tight">Taipei & Tokyo</h1>
+                                <p className="text-[10px] font-bold text-kawaii-hotPink tracking-[0.2em] uppercase mt-1">Amy & Lai's Trip 2026</p>
+                                <div className="absolute top-4 right-4 bg-white/80 p-1.5 rounded-full shadow-sm">
+                                    <span className="text-xl">✈️</span>
+                                </div>
                             </div>
-                            <div className="bg-white p-2 rounded-full shadow-soft"><span className="text-2xl">✈️</span></div>
                         </div>
                     </header>
 
-                    <main className="pt-2">
+                    <main className="pt-6">
                         {activeTab === 'itinerary' && (
                             <div className="animate-fade-in">
                                 <DateSelector selectedDate={selectedDate} onSelect={setSelectedDate} />
@@ -506,30 +573,12 @@
 
                         {activeTab === 'expenses' && (
                             <div className="px-6 pt-4 animate-fade-in space-y-6">
-                                <div className="bg-gray-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
-                                    <div className="absolute right-0 top-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
-                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Total Trip Cost</p>
-                                    <h2 className="text-4xl font-bold font-mono tracking-tighter mb-4">HK${totalHKD.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</h2>
-                                    
-                                    <div className="grid grid-cols-2 gap-4 mb-4">
-                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
-                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Amy Paid</p>
-                                            <p className="text-sm font-bold font-mono">HK${totalAmyHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
-                                        </div>
-                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
-                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Lai Paid</p>
-                                            <p className="text-sm font-bold font-mono">HK${totalLaiHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="pt-4 border-t border-gray-700 flex justify-between items-center">
-                                        <span className="text-xs text-gray-400">Cost per person</span>
-                                        <span className="text-lg font-bold">HK${(totalHKD/2).toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</span>
-                                    </div>
-                                </div>
-
+                                {/* NEW EXPENSE FORM AT THE TOP */}
                                 <div className="bg-white rounded-[2rem] p-6 shadow-soft">
-                                    <h3 className="font-bold text-lg text-gray-700 mb-5 flex items-center"><span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 text-green-600 text-sm">＋</span> New Expense</h3>
+                                    <h3 className="font-bold text-lg text-gray-700 mb-5 flex items-center">
+                                        <span className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2 text-green-600 text-sm">＋</span> 
+                                        New Expense
+                                    </h3>
                                     <form onSubmit={handleAddExpense} className="space-y-4">
                                         <div>
                                             <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Date</label>
@@ -573,6 +622,60 @@
                                         </div>
                                         <button type="submit" className="w-full bg-gradient-to-r from-kawaii-pink to-kawaii-hotPink text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform active:scale-95 mt-4">Add Expense ✨</button>
                                     </form>
+                                </div>
+
+                                <div className="bg-gray-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+                                    <div className="absolute right-0 top-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+                                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Total Trip Cost</p>
+                                    <h2 className="text-4xl font-bold font-mono tracking-tighter mb-4">HK${totalHKD.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</h2>
+                                    
+                                    <div className="grid grid-cols-2 gap-4 mb-4">
+                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
+                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Amy Paid</p>
+                                            <p className="text-sm font-bold font-mono">HK${totalAmyHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
+                                        </div>
+                                        <div className="bg-white/10 rounded-2xl p-3 border border-white/10">
+                                            <p className="text-[10px] uppercase font-bold text-white/60 mb-1">Lai Paid</p>
+                                            <p className="text-sm font-bold font-mono">HK${totalLaiHKD.toLocaleString(undefined, {minimumFractionDigits: 1})}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="pt-4 border-t border-gray-700 flex justify-between items-center">
+                                        <span className="text-xs text-gray-400">Cost per person</span>
+                                        <span className="text-lg font-bold">HK${(totalHKD/2).toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}</span>
+                                    </div>
+                                </div>
+
+                                {/* DASHBOARD SECTION WITH PIE CHART */}
+                                <div className="bg-white rounded-[2rem] p-6 shadow-soft">
+                                    <h3 className="font-bold text-lg text-gray-700 mb-6 flex items-center">
+                                        <span className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 text-purple-600 text-sm"><Icons.Chart /></span> 
+                                        Spending Dashboard
+                                    </h3>
+                                    
+                                    <div className="flex flex-col items-center justify-center space-y-8">
+                                        <PieChart data={categoryData} total={totalHKD} />
+                                        
+                                        <div className="w-full grid grid-cols-2 gap-x-4 gap-y-3">
+                                            {EXPENSE_CATEGORIES.map(cat => {
+                                                const amount = categoryData[cat];
+                                                const percentage = totalHKD > 0 ? (amount / totalHKD) * 100 : 0;
+                                                return (
+                                                    <div key={cat} className="flex items-center space-x-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                                        <div 
+                                                            className="w-3 h-3 rounded-full flex-shrink-0"
+                                                            style={{ backgroundColor: CATEGORY_HEX_COLORS[cat] }}
+                                                        />
+                                                        <div className="flex flex-col min-w-0">
+                                                            <span className="text-[10px] font-bold text-gray-400 uppercase truncate">{cat}</span>
+                                                            <span className="text-[11px] font-bold text-gray-700 truncate">HK${Math.round(amount)}</span>
+                                                            <span className="text-[9px] font-bold text-kawaii-pink">{percentage.toFixed(0)}%</span>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="pb-8">
