@@ -122,7 +122,7 @@
         ];
 
         const EXPENSE_CATEGORIES = ['手信', '膳食', '交通', '個人消費', '門票', '娛樂'];
-        const PAYMENT_METHODS = ['Cash', 'Credit Card-Aeon', 'Credit Card-Mox', 'Credit Card - HS Travel'];
+        const PAYMENT_METHODS = ['Cash', 'Card-MOX', 'Card-Aeon', 'Card-Hang Seng'];
 
         const DEFAULT_RATES = {
             'HKD': 1,
@@ -563,7 +563,7 @@
                                             <div className="flex-1 min-w-0">
                                                 <label className="block text-xs font-bold text-gray-400 uppercase mb-1.5 ml-1">Method</label>
                                                 <select name="method" className="w-full bg-kawaii-bg rounded-xl px-3 py-3 text-sm font-bold text-gray-600 outline-none focus:ring-2 focus:ring-kawaii-pink/50 transition-all">
-                                                     {PAYMENT_METHODS.map(m => <option key={m} value={m}>{m.split(' ')[0]}</option>)}
+                                                     {PAYMENT_METHODS.map(m => <option key={m} value={m}>{m}</option>)}
                                                 </select>
                                             </div>
                                         </div>
